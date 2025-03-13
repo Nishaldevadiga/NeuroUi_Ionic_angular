@@ -14,10 +14,10 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   loginMethod: 'mobile' | 'email' = 'mobile';
   countryCode = '+1';
-  countryFlag = 'us';
+  countryFlag = 'US';
   countries = [
-    { code: '+1', flag: 'us' },
-    { code: '+91', flag: 'in' },
+    { code: '+1', flag: 'US' },
+    { code: '+91', flag: 'india' },
     { code: '+44', flag: 'gb' }
   ];
 
