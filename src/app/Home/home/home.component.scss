@@ -31,155 +31,24 @@ ion-content {
   }
   
   .card-container {
-    background-color: transparent;
-    border-radius: 20px;
     margin-bottom: 20px;
     position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   
-    .diagonal-grid {
-      display: grid;
-      grid-template-columns: 5fr 4fr;
-      grid-template-rows: 4fr 5fr;
-      gap: 8px;
-      height: 260px;
+    .main-image-container {
       position: relative;
+      width: 100%;
+      height: 60vh;
+      max-height: 500px;
+      min-height: 300px;
   
-      &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #0277bd;
-        clip-path: polygon(0 50%, 50% 0, 100% 50%, 50% 100%);
-        z-index: 1;
-        opacity: 0.1;
-        pointer-events: none;
-      }
-  
-      .image-item {
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-        transform: perspective(800px);
+      .main-image {
+        width: 100%;
         height: 100%;
-  
-        ion-img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: transform 0.3s ease;
-        }
-  
-        &::after {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 50%);
-          z-index: 1;
-        }
-      }
-  
-      .top-left {
-        grid-column: 1;
-        grid-row: 1;
-        transform: perspective(800px) rotateY(5deg) rotateX(-2deg);
-        clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
-        z-index: 2;
-      }
-  
-      .top-right {
-        grid-column: 2;
-        grid-row: 1;
-        transform: perspective(800px) rotateY(-5deg) rotateX(-2deg);
-        clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
-        z-index: 1;
-      }
-  
-      .bottom-left {
-        grid-column: 1;
-        grid-row: 2;
-        transform: perspective(800px) rotateY(5deg) rotateX(2deg);
-        clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-        z-index: 1;
-      }
-  
-      .bottom-right {
-        grid-column: 2;
-        grid-row: 2;
-        transform: perspective(800px) rotateY(-5deg) rotateX(2deg);
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
-        z-index: 2;
-      }
-    }
-  
-    .intro-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 3;
-      text-align: center;
-      width: 80%;
-      pointer-events: none;
-  
-      h2 {
-        color: white;
-        font-size: 24px;
-        font-weight: 700;
-        margin: 0 0 8px;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-      }
-  
-      h3 {
-        color: rgba(255, 255, 255, 0.95);
-        font-size: 18px;
-        font-weight: 400;
-        margin: 0 0 12px;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-      }
-  
-      .tagline {
-        color: rgba(255, 255, 255, 0.9);
-        font-size: 14px;
-        margin: 0;
-        letter-spacing: 0.5px;
-      }
-  
-      @media (max-width: 768px) {
-        width: 90%;
-        
-        h2 {
-          font-size: 20px;
-          margin-bottom: 6px;
-        }
-  
-        h3 {
-          font-size: 16px;
-          margin-bottom: 8px;
-        }
-  
-        .tagline {
-          font-size: 12px;
-        }
-      }
-  
-      @media (max-width: 480px) {
-        h2 {
-          font-size: 18px;
-        }
-  
-        h3 {
-          font-size: 14px;
-        }
-  
-        .tagline {
-          font-size: 11px;
-        }
+        object-fit: cover;
+        transition: transform 0.3s ease;
       }
     }
   }
@@ -208,14 +77,10 @@ ion-content {
     }
   }
   
-  .image-item:hover ion-img {
-    transform: scale(1.05);
-  }
-  
   @media (max-width: 768px) {
-    .diagonal-grid {
-      height: 220px !important;
-      gap: 6px !important;
+    .card-container .main-image-container {
+      height: 50vh;
+      max-height: 400px;
     }
   
     .header-section {
@@ -232,12 +97,125 @@ ion-content {
   }
   
   @media (max-width: 480px) {
-    .diagonal-grid {
-      height: 200px !important;
-      gap: 4px !important;
+    .card-container .main-image-container {
+      height: 40vh;
+      max-height: 300px;
     }
   
     .header-section h1 {
       font-size: 22px;
+    }
+  }
+  /* Add to your SCSS file */
+.subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    margin: 0;
+    display: inline-block;
+    position: relative;
+    animation: fadeInSlideUp 1.2s ease-out both,
+               subtlePulse 4s ease-in-out infinite 1.2s;
+  
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.3);
+      transform: scaleX(0);
+      animation: underlineExpand 2s ease-out forwards 1.4s;
+    }
+  }
+  
+  @keyframes fadeInSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes subtlePulse {
+    0%, 100% {
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0);
+    }
+    50% {
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+    }
+  }
+  
+  @keyframes underlineExpand {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+  .subtitle {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin: 0;
+    display: inline-block;
+    position: relative;
+    background: linear-gradient(45deg, #4fc3f7 0%, #b3e5fc 50%, #ffffff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 12px rgba(79, 195, 247, 0.4);
+    animation: subtitleEntrance 1.2s cubic-bezier(0.4, 0, 0.2, 1) both,
+               subtitleGlow 3s ease-in-out infinite 1.2s;
+  
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent 0%, #4fc3f7 50%, transparent 100%);
+      opacity: 0.8;
+      animation: subtitleLine 2s ease-out forwards 1s;
+    }
+  }
+  
+  @keyframes subtitleEntrance {
+    from {
+      opacity: 0;
+      transform: translateY(30px) scale(1.4);
+      filter: blur(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+  }
+  
+  @keyframes subtitleGlow {
+    0%, 100% {
+      text-shadow: 0 0 12px rgba(79, 195, 247, 0.4),
+                   0 0 24px rgba(79, 195, 247, 0.2);
+    }
+    50% {
+      text-shadow: 0 0 24px rgba(79, 195, 247, 0.8),
+                   0 0 48px rgba(79, 195, 247, 0.4);
+    }
+  }
+  
+  @keyframes subtitleLine {
+    from {
+      width: 0%;
+      opacity: 0;
+    }
+    to {
+      width: 80%;
+      opacity: 0.8;
     }
   }
