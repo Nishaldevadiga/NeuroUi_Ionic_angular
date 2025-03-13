@@ -1,3 +1,64 @@
-<p>
-  login works!
-</p>
+<ion-content class="ion-padding">
+  <div class="back-button">
+    <ion-button fill="clear" (click)="goBack()">
+      <ion-icon name="chevron-back-outline" slot="icon-only"></ion-icon>
+      <span>Sign In</span>
+    </ion-button>
+  </div>
+
+  <div class="login-container">
+     <!-- Neural Waves Background -->
+     <div class="neural-waves"></div>
+    <h1 class="title">NeuroAura</h1>
+    
+
+    <div class="login-method-switcher">
+      <ion-segment [(ngModel)]="loginMethod" mode="md">
+        <ion-segment-button value="mobile">
+          <ion-label>Mobile Number</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="email">
+          <ion-label>Email</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-container">
+        <ion-label class="form-label">{{ loginMethod === 'mobile' ? 'Mobile Number' : 'Email' }}</ion-label>
+
+        <div *ngIf="loginMethod === 'mobile'">
+          <div class="phone-input-container">
+            <ion-button fill="clear" class="country-select" (click)="selectCountry()">
+              <img [src]="'assets/flags/' + countryFlag + '.png'" alt="Country Flag" class="country-flag" />
+              <ion-icon name="chevron-down-outline"></ion-icon>
+            </ion-button>
+            
+            <ion-input class="country-code" readonly [value]="countryCode"></ion-input>
+            
+            <ion-input class="phone-number" 
+                      type="tel" 
+                      placeholder="--- --- ----" 
+                      formControlName="mobileNumber">
+            </ion-input>
+          </div>
+        </div>
+
+        <div *ngIf="loginMethod === 'email'">
+          <ion-input type="email" 
+                    placeholder="Enter your email" 
+                    formControlName="email">
+          </ion-input>
+        </div>
+      </div>
+
+      <ion-button expand="block" 
+                  class="next-button" 
+                  type="submit" 
+                  [disabled]="(loginMethod === 'mobile' && !loginForm.get('mobileNumber')?.valid) || 
+                              (loginMethod === 'email' && !loginForm.get('email')?.valid)">
+        Next
+      </ion-button>
+    </form>
+  </div>
+</ion-content>

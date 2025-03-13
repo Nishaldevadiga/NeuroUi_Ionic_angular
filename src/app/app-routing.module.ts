@@ -3,6 +3,8 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { HomeComponent } from './Home/home/home.component';
 import { RegisterComponent } from './Register/register/register.component';
+import { LoginComponent } from './Login/login/login.component';
+
 
 const routes: Routes = [
   {
@@ -10,6 +12,9 @@ const routes: Routes = [
   },
   {
     path:'register',component:RegisterComponent
+  },
+  {
+    path:'login',component:LoginComponent
   },
   {
     path: '',

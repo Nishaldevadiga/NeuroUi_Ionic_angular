@@ -1,0 +1,220 @@
+ion-content {
+    --background: linear-gradient(180deg, #0077B6 0%, #003D5B 100%);
+    --color: #ffffff;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .back-button {
+    margin-top: 20px;
+    ion-button {
+      --color: #ffffff;
+      font-size: 18px;
+      
+      ion-icon {
+        margin-right: 5px;
+      }
+    }
+  }
+  
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0 10px;
+  }
+  
+  .title {
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: 600;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  
+  .login-method-switcher {
+    margin-bottom: 40px;
+    
+    ion-segment {
+      --background: rgba(255, 255, 255, 0.2);
+      border-radius: 30px;
+      padding: 3px;
+      
+      ion-segment-button {
+        --background: transparent;
+        --background-checked: #ffffff;
+        --color: rgba(255, 255, 255, 0.8);
+        --color-checked: #0077B6;
+        --indicator-color: transparent;
+        min-height: 45px;
+        border-radius: 30px;
+        text-transform: none;
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: 0;
+      }
+    }
+  }
+  
+  .form-container {
+    margin-bottom: 20px;
+  }
+  
+  .form-label {
+    color: #ffffff;
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  .phone-input-container {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+    
+    .country-select {
+      --padding-start: 10px;
+      --padding-end: 10px;
+      height: 55px;
+      width: 75px;
+      
+      .country-flag {
+        width: 24px;
+        height: 16px;
+        margin-right: 5px;
+      }
+    }
+    
+    .country-code {
+      --color: #ffffff;
+      --placeholder-color: rgba(255, 255, 255, 0.6);
+      --background: transparent;
+      --padding-start: 5px;
+      width: 40px;
+      font-size: 16px;
+    }
+    
+    .phone-number {
+      --color: #ffffff;
+      --placeholder-color: rgba(255, 255, 255, 0.6);
+      --background: transparent;
+      --padding-start: 10px;
+      font-size: 16px;
+      flex: 1;
+    }
+  }
+  
+  ion-input {
+    --color: #ffffff;
+    --placeholder-color: rgba(255, 255, 255, 0.6);
+    --background: rgba(255, 255, 255, 0.15);
+    --padding-start: 15px;
+    --padding-end: 15px;
+    --padding-top: 15px;
+    --padding-bottom: 15px;
+    height: 55px;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+  
+  .next-button {
+    --background: #ffffff;
+    --color: #0077B6;
+    --border-radius: 30px;
+    --box-shadow: none;
+    font-size: 18px;
+    font-weight: 600;
+    height: 55px;
+    margin-bottom: 20px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    
+    &:disabled {
+      --background: rgba(255, 255, 255, 0.5);
+      --color: rgba(0, 119, 182, 0.5);
+    }
+  }
+
+  .title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 2rem 0;
+    position: relative;
+    background: linear-gradient(45deg, #4fc3f7 0%, #b3e5fc 50%, #ffffff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientPulse 6s ease infinite, fadeIn 1.5s ease-out;
+    text-shadow: 0 0 15px rgba(79, 195, 247, 0.4),
+                 0 0 30px rgba(79, 195, 247, 0.2),
+                 0 0 45px rgba(79, 195, 247, 0.1);
+  
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent 0%, #4fc3f7 50%, transparent 100%);
+      filter: blur(2px);
+      animation: lineGlow 2.5s ease-in-out infinite;
+    }
+  }
+  
+  @keyframes gradientPulse {
+    0%, 100% {
+      background-position: 0% 50%;
+      opacity: 1;
+    }
+    50% {
+      background-position: 100% 50%;
+      opacity: 0.9;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes lineGlow {
+    0%, 100% {
+      opacity: 0.6;
+      width: 60%;
+    }
+    50% {
+      opacity: 1;
+      width: 80%;
+    }
+  }
+  .neural-waves {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    background: url('data:image/svg+xml;utf8,<svg...>') repeat-x; /* Add SVG wave pattern */
+    animation: waveMove 4s linear infinite;
+    opacity: 0.3;
+  }
+
+  .title:hover {
+    animation: neuralSpark 0.8s ease;
+    cursor: pointer;
+  }
+  
+  @keyframes neuralSpark {
+    0% { filter: brightness(1); }
+    50% { filter: brightness(1.8); }
+    100% { filter: brightness(1); }
+  }

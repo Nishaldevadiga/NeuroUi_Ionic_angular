@@ -1,0 +1,23 @@
+<svg viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg">
+<path
+d="M 0 10 Q 10 2 20 10 T 40 10 T 60 10 T 80 10 T 100 10"
+stroke="#4fc3f7"
+fill="none"
+stroke-width="1.5"
+stroke-opacity="0.7"
+/>
+<path
+d="M 0 12 Q 12 5 24 12 T 48 12 T 72 12 T 96 12"
+stroke="#b3e5fc"
+fill="none"
+stroke-width="1"
+stroke-opacity="0.5"
+/>
+<path
+d="M 0 8 Q 8 15 16 8 T 32 8 T 48 8 T 64 8 T 80 8 T 96 8"
+stroke="#ffffff"
+fill="none"
+stroke-width="0.8"
+stroke-opacity="0.4"
+/>
+</svg>

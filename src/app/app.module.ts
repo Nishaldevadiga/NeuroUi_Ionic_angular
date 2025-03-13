@@ -7,11 +7,14 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from "./Home/home/home.component";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { LoginComponent } from './Login/login/login.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  declarations: [AppComponent,HomeComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  declarations: [AppComponent,HomeComponent,LoginComponent],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule,CommonModule,ReactiveFormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
