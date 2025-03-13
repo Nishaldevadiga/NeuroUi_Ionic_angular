@@ -2,10 +2,14 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { HomeComponent } from './Home/home/home.component';
+import { RegisterComponent } from './Register/register/register.component';
 
 const routes: Routes = [
   {
     path: 'home',component:HomeComponent
+  },
+  {
+    path:'register',component:RegisterComponent
   },
   {
     path: '',
