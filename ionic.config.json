@@ -1,0 +1,7 @@
+{
+  "name": "NeuroUi",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
