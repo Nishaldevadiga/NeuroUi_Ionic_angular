@@ -219,3 +219,106 @@ ion-content {
       opacity: 0.8;
     }
   }
+  .inspirational-title {
+    font-size: 3.5rem;
+    text-align: center;
+    position: relative;
+    animation: titleEntrance 1.5s ease-out forwards,
+               gradientFlow 8s linear infinite,
+               pulseGlow 4s ease-in-out infinite;
+    
+    // Text styling
+    background: linear-gradient(45deg, 
+      #4fc3f7 0%, 
+      #b3e5fc 25%, 
+      #ffffff 50%, 
+      #b3e5fc 75%, 
+      #4fc3f7 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+    
+    // Text effects
+    text-shadow: 
+      0 0 20px rgba(79, 195, 247, 0.4),
+      0 0 40px rgba(79, 195, 247, 0.3),
+      0 0 60px rgba(79, 195, 247, 0.2);
+  
+    // Underline effect
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 3px;
+      background: linear-gradient(90deg, 
+        transparent 0%, 
+        #4fc3f7 50%, 
+        transparent 100%);
+      filter: blur(3px);
+      animation: underlineFlow 3s ease-in-out infinite;
+    }
+  
+    // Hover effect
+    &:hover {
+      animation: neuralSpark 0.8s ease;
+      cursor: pointer;
+    }
+  }
+  
+  @keyframes titleEntrance {
+    from {
+      opacity: 0;
+      transform: translateY(30px) scale(1.2);
+      filter: blur(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+  }
+  
+  @keyframes gradientFlow {
+    0% {
+      background-position: 0% center;
+    }
+    100% {
+      background-position: -200% center;
+    }
+  }
+  
+  @keyframes pulseGlow {
+    0%, 100% {
+      text-shadow: 
+        0 0 20px rgba(79, 195, 247, 0.4),
+        0 0 40px rgba(79, 195, 247, 0.3),
+        0 0 60px rgba(79, 195, 247, 0.2);
+    }
+    50% {
+      text-shadow: 
+        0 0 30px rgba(79, 195, 247, 0.6),
+        0 0 60px rgba(79, 195, 247, 0.4),
+        0 0 90px rgba(79, 195, 247, 0.3);
+    }
+  }
+  
+  @keyframes underlineFlow {
+    0%, 100% {
+      opacity: 0.8;
+      width: 60%;
+    }
+    50% {
+      opacity: 1;
+      width: 80%;
+    }
+  }
+  
+  @keyframes neuralSpark {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
