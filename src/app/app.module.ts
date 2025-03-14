@@ -10,10 +10,11 @@ import { HomeComponent } from "./Home/home/home.component";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './Login/login/login.component';
+import { RegisterComponent } from './Register/register/register.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  declarations: [AppComponent,HomeComponent,LoginComponent],
+  declarations: [AppComponent,HomeComponent,LoginComponent,RegisterComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule,CommonModule,ReactiveFormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

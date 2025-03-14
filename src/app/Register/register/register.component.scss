@@ -1,0 +1,185 @@
+ion-content {
+    --background: linear-gradient(180deg, #0077B6 0%, #003D5B 100%);
+    --color: #ffffff;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .back-button {
+    margin-top: 20px;
+    ion-button {
+      --color: #ffffff;
+      font-size: 18px;
+      
+      ion-icon {
+        margin-right: 5px;
+      }
+    }
+  }
+  
+  .register-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+  }
+  
+  .title {
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+  
+  .subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 15px;
+    
+    .form-group {
+      flex: 1;
+    }
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-label {
+    color: #ffffff;
+    font-size: 16px;
+    margin-bottom: 8px;
+    display: block;
+    
+    .optional {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 14px;
+    }
+  }
+  
+  .form-input,
+  ion-input {
+    --background: rgba(255, 255, 255, 0.15);
+    --color: #ffffff;
+    --placeholder-color: rgba(255, 255, 255, 0.5);
+    --padding-start: 15px;
+    --padding-end: 15px;
+    --padding-top: 15px;
+    --padding-bottom: 15px;
+    height: 50px;
+    border-radius: 10px;
+    margin-top: 5px;
+  }
+  
+  .phone-input-container {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 5px;
+    
+    .country-select {
+      --padding-start: 10px;
+      --padding-end: 10px;
+      height: 50px;
+      width: 75px;
+      
+      .country-flag {
+        width: 24px;
+        height: 16px;
+        margin-right: 5px;
+      }
+    }
+    
+    .country-code {
+      --background: transparent;
+      --padding-start: 5px;
+      width: 40px;
+      font-size: 16px;
+    }
+    
+    .phone-number {
+      --background: transparent;
+      --padding-start: 10px;
+      font-size: 16px;
+      flex: 1;
+    }
+  }
+  
+  .gender-options {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 5px;
+  }
+  
+  .gender-option {
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    
+    &.selected {
+      background-color: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 0 0 2px #4fc3f7;
+    }
+    
+    .gender-icon {
+      font-size: 28px;
+      margin-bottom: 5px;
+      
+      &.male {
+        color: #4fc3f7;
+      }
+      
+      &.female {
+        color: #f06292;
+      }
+      
+      &.other {
+        color: #ba68c8;
+      }
+    }
+    
+    .gender-label {
+      color: #ffffff;
+      font-size: 14px;
+    }
+    
+    .check-icon {
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      color: #4fc3f7;
+      font-size: 20px;
+    }
+  }
+  
+  .signup-button {
+    --background: #ffffff;
+    --color: #0077B6;
+    --border-radius: 30px;
+    --box-shadow: none;
+    font-size: 18px;
+    font-weight: 600;
+    height: 55px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+    &:disabled {
+      --background: rgba(255, 255, 255, 0.5);
+      --color: rgba(0, 119, 182, 0.5);
+    }
+  }

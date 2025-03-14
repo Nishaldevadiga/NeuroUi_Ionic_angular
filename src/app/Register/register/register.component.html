@@ -1,1 +1,118 @@
-<h1>Register</h1>
+<ion-content class="ion-padding">
+  <div class="back-button">
+    <ion-button fill="clear" (click)="goBack()">
+      <ion-icon name="chevron-back-outline" slot="icon-only"></ion-icon>
+      <span>Sign Up</span>
+    </ion-button>
+  </div>
+
+  <div class="register-container">
+    <h1 class="title">Let's Get To Know You</h1>
+    <p class="subtitle">Fill details to continue</p>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-group">
+          <ion-label class="form-label">First Name</ion-label>
+          <ion-input class="form-input" 
+                    type="text" 
+                    placeholder="First Name" 
+                    formControlName="firstName">
+          </ion-input>
+        </div>
+
+        <div class="form-group">
+          <ion-label class="form-label">Last Name</ion-label>
+          <ion-input class="form-input" 
+                    type="text" 
+                    placeholder="Last Name" 
+                    formControlName="lastName">
+          </ion-input>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <ion-label class="form-label">Mobile Number</ion-label>
+        <div class="phone-input-container">
+          <ion-button fill="clear" class="country-select" (click)="selectCountry()">
+            <img [src]="'assets/' + countryFlag + '.png'" alt="Country Flag" class="country-flag" />
+            <ion-icon name="chevron-down-outline"></ion-icon>
+          </ion-button>
+          
+          <ion-input class="country-code" readonly [value]="countryCode"></ion-input>
+          
+          <ion-input class="phone-number" 
+                    type="tel" 
+                    placeholder="--- --- ----" 
+                    formControlName="mobileNumber">
+          </ion-input>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <ion-label class="form-label">Email <span class="optional">(optional)</span></ion-label>
+        <ion-input class="form-input" 
+                  type="email" 
+                  placeholder="Email" 
+                  formControlName="email">
+        </ion-input>
+      </div>
+
+      <div class="form-group">
+        <ion-label class="form-label">Gender</ion-label>
+        <div class="gender-options">
+          <div class="gender-option" 
+               [class.selected]="selectedGender === 'male'"
+               (click)="selectGender('male')">
+            <div class="gender-icon male">
+              <ion-icon name="male-outline"></ion-icon>
+            </div>
+            <div class="gender-label">Male</div>
+            <div class="check-icon" *ngIf="selectedGender === 'male'">
+              <ion-icon name="checkmark-circle"></ion-icon>
+            </div>
+          </div>
+
+          <div class="gender-option" 
+               [class.selected]="selectedGender === 'female'"
+               (click)="selectGender('female')">
+            <div class="gender-icon female">
+              <ion-icon name="female-outline"></ion-icon>
+            </div>
+            <div class="gender-label">Female</div>
+            <div class="check-icon" *ngIf="selectedGender === 'female'">
+              <ion-icon name="checkmark-circle"></ion-icon>
+            </div>
+          </div>
+
+          <div class="gender-option" 
+               [class.selected]="selectedGender === 'other'"
+               (click)="selectGender('other')">
+            <div class="gender-icon other">
+              <ion-icon name="male-female-outline"></ion-icon>
+            </div>
+            <div class="gender-label">Other</div>
+            <div class="check-icon" *ngIf="selectedGender === 'other'">
+              <ion-icon name="checkmark-circle"></ion-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <ion-label class="form-label">Date of Birth <span class="optional">(optional)</span></ion-label>
+        <ion-input class="form-input" 
+                  type="text" 
+                  placeholder="mm / dd / yy" 
+                  formControlName="dateOfBirth">
+        </ion-input>
+      </div>
+
+      <ion-button expand="block" 
+                  class="signup-button" 
+                  type="submit">
+        Sign Up
+      </ion-button>
+    </form>
+  </div>
+</ion-content>
