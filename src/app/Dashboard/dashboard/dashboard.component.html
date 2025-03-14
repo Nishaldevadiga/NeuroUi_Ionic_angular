@@ -1,3 +1,131 @@
-<p>
-  dashboard works!
-</p>
+<!-- dashboard.component.html -->
+<ion-content class="ion-padding-horizontal dark-theme">
+  <!-- Analyze Section -->
+  <div class="analyze-section">
+    <div class="analyze-circle">
+      <ion-icon name="aperture-outline" class="analyze-icon"></ion-icon>
+      <div class="analyze-text">Analyze</div>
+    </div>
+  </div>
+
+  <!-- Emotions Section -->
+  <div class="section-label">
+    <ion-icon name="heart" color="danger"></ion-icon>
+    <span>Emotions</span>
+  </div>
+
+  <!-- Emotional Status Card -->
+  <ion-card class="dashboard-card">
+    <ion-card-content>
+      <div class="emotion-header">
+        <ion-icon name="ellipse" color="primary"></ion-icon>
+        <span>Emotional status</span>
+      </div>
+      <div class="emotion-display">
+        <div class="emotion-dots">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div class="emotion-face">
+          <ion-icon name="happy-outline" color="danger"></ion-icon>
+        </div>
+        <div class="emotion-text">{{ emotionalStatus }}</div>
+        <div class="emotion-dots">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Sleep Status Card -->
+  <ion-card class="dashboard-card" (click)="navigateToSleepDetails()">
+    <ion-card-content>
+      <div class="sleep-header">
+        <div class="sleep-title">
+          <ion-icon name="moon" color="primary"></ion-icon>
+          <span>Sleep status</span>
+        </div>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </div>
+      <div class="sleep-subtitle">Last 7 days</div>
+      
+      <div class="sleep-data-container">
+        <!-- Circle Progress -->
+        <div class="sleep-progress">
+          <div class="progress-circle">
+            <span class="score">{{sleepScore}}/7</span>
+            <span class="status">Achieved</span>
+          </div>
+        </div>
+        
+        <!-- Weekly Progress -->
+        <div class="weekly-progress">
+          <div *ngFor="let day of daysOfWeek; let i = index" class="day-progress">
+            <div class="progress-indicator" [style.height.%]="sleepData[i] * 100"></div>
+            <div class="day-label">{{ day }}</div>
+          </div>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  Trends Section
+  <div class="section-header">TRENDS</div>
+
+  <!-- Trend Cards -->
+  <ion-card *ngFor="let item of trendItems" class="dashboard-card">
+    <ion-card-content>
+      <div class="trend-title">{{ item.title }}</div>
+      <div class="trend-content">
+        <div class="trend-description">{{ item.description }}</div>
+        <div class="trend-icon" [ngClass]="item.icon"></div>
+      </div>
+      <div class="trend-action">{{ item.action }}</div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- YouTube Section -->
+  <ion-card class="dashboard-card">
+    <ion-card-content>
+      <div class="youtube-header">
+        <div class="youtube-title">
+          <ion-icon name="logo-youtube" color="danger"></ion-icon>
+          <span>EEG on Youtube</span>
+        </div>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </div>
+      
+      <div class="video-container">
+        <div *ngFor="let video of youtubeVideos" class="video-item" (click)="navigateToVideo(video)">
+          <img [src]="video.thumbnail" [alt]="video.title" class="video-thumbnail">
+          <div class="video-title">{{ video.title }}</div>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Bottom Navigation -->
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="home" selected="true">
+        <ion-icon name="home-outline"></ion-icon>
+        <ion-label color="primary">Home</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="journal">
+        <ion-icon name="document-text-outline"></ion-icon>
+        <ion-label>Journal</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="browse">
+        <ion-icon name="time-outline"></ion-icon>
+        <ion-label>Browse</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="profile">
+        <ion-icon name="person-outline"></ion-icon>
+        <ion-label>Profile</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

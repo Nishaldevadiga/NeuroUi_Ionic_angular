@@ -4,6 +4,7 @@ import { IonicModule } from '@ionic/angular';
 import { HomeComponent } from './Home/home/home.component';
 import { RegisterComponent } from './Register/register/register.component';
 import { LoginComponent } from './Login/login/login.component';
+import { DashboardComponent } from './Dashboard/dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,9 @@ const routes: Routes = [
   },
   {
     path:'login',component:LoginComponent
+  },
+  {
+    path:'dashboard',component:DashboardComponent
   },
   {
     path: '',
