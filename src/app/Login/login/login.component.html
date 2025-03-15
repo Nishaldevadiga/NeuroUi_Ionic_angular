@@ -53,12 +53,13 @@
       </div>
 
       <ion-button expand="block" 
-                  class="next-button" 
-                  type="submit" 
-                  [disabled]="(loginMethod === 'mobile' && !loginForm.get('mobileNumber')?.valid) || 
-                              (loginMethod === 'email' && !loginForm.get('email')?.valid)">
-        Next
-      </ion-button>
+      class="next-button" 
+      type="submit" 
+      [disabled]="(loginMethod === 'mobile' && !loginForm.get('mobileNumber')?.valid) || 
+                  (loginMethod === 'email' && !loginForm.get('email')?.valid)"
+      (click)="navigateToDashboard()">
+Next
+</ion-button>
     </form>
   </div>
 </ion-content>

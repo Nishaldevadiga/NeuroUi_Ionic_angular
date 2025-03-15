@@ -70,7 +70,12 @@ export class LoginComponent implements OnInit {
         : this.loginForm.value.email;
       
       console.log('Login credentials:', credentials);
-      this.router.navigate(['/verification']);
+      this.router.navigate(['/dashboard']);
     }
+  }
+
+  navigateToDashboard() {
+    // You can add validation logic here if needed
+    this.router.navigate(['/dashboard']);
   }
 }

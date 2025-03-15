@@ -75,12 +75,14 @@
   <div class="section-header">TRENDS</div>
 
   <!-- Trend Cards -->
-  <ion-card *ngFor="let item of trendItems" class="dashboard-card">
+  <ion-card *ngFor="let item of trendItems; let i = index" class="dashboard-card">
     <ion-card-content>
       <div class="trend-title">{{ item.title }}</div>
       <div class="trend-content">
         <div class="trend-description">{{ item.description }}</div>
-        <div class="trend-icon" [ngClass]="item.icon"></div>
+        <div class="trend-icon">
+          <img [src]="item.imageSrc" [alt]="item.title" class="trend-image">
+        </div>
       </div>
       <div class="trend-action">{{ item.action }}</div>
     </ion-card-content>
