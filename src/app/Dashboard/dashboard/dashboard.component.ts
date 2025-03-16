@@ -1,4 +1,5 @@
 // dashboard.component.ts
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
   standalone:false
 })
 export class DashboardComponent implements OnInit {
-  emotionalStatus = 'SAD';
+  emotionalStatus = '';
   sleepScore = 4;
   daysOfWeek = ['FR', 'SA', 'SU', 'MO', 'TU', 'WE', 'TH'];
   sleepData = [0.5, 0.3, 0.6, 0.4, 0.8, 0.2, 0.7]; // Values between 0-1 representing sleep quality
@@ -36,10 +37,43 @@ export class DashboardComponent implements OnInit {
     { title: 'Getting an EEG', thumbnail: './assets/EEGS.png' }
   ];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  // Add this to your component class
+get emotionClass(): string {
+  if (!this.emotionalStatus) return 'default';
+  return this.emotionalStatus.toLowerCase();
+}
 
   ngOnInit() {
     // Any initialization logic
+  }
+
+  emotionEmojis: { [key: string]: string } = {
+    'FEAR': '😨',
+    'DISGUST': '🤢',
+    'HAPPY': '😊',
+    'ANGER': '😠',
+    'ERROR': '❌',
+    'DEFAULT': '🧠'
+  };
+
+  get currentEmoji(): string {
+    if (!this.emotionalStatus) return this.emotionEmojis['DEFAULT'];
+    return this.emotionEmojis[this.emotionalStatus] || this.emotionEmojis['DEFAULT'];
+  }
+
+  analyzeEmotion() {
+    this.http.get<{ emotion: string }>('http://127.0.0.1:5002/analyse')
+      .subscribe({
+        next: (response) => {
+          this.emotionalStatus = response.emotion.toUpperCase();
+        },
+        error: (err) => {
+          console.error('Error analyzing emotion:', err);
+          this.emotionalStatus = 'ERROR'; // Optional error state
+        }
+      });
   }
 
   navigateToDetails(item: any) {

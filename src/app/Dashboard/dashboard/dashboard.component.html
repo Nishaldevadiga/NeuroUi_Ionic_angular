@@ -2,43 +2,44 @@
 <ion-content class="ion-padding-horizontal dark-theme">
   <!-- Analyze Section -->
   <div class="analyze-section">
-    <div class="analyze-circle">
+    <div class="analyze-circle" (click)="analyzeEmotion()">
       <ion-icon name="aperture-outline" class="analyze-icon"></ion-icon>
       <div class="analyze-text">Analyze</div>
     </div>
   </div>
+<!-- Emotions Section -->
+<div class="section-label">
+  <ion-icon name="heart" color="danger"></ion-icon>
+  <span>Emotions</span>
+</div>
 
-  <!-- Emotions Section -->
-  <div class="section-label">
-    <ion-icon name="heart" color="danger"></ion-icon>
-    <span>Emotions</span>
-  </div>
-
-  <!-- Emotional Status Card -->
-  <ion-card class="dashboard-card">
-    <ion-card-content>
-      <div class="emotion-header">
-        <ion-icon name="ellipse" color="primary"></ion-icon>
-        <span>Emotional status</span>
+<!-- Emotional Status Card -->
+<ion-card class="dashboard-card">
+  <ion-card-content>
+    <div class="emotion-header">
+      <ion-icon name="ellipse" color="primary"></ion-icon>
+      <span>Emotional status</span>
+    </div>
+    <div class="emotion-display">
+      <div class="emotion-dots">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
       </div>
-      <div class="emotion-display">
-        <div class="emotion-dots">
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-        </div>
-        <div class="emotion-face">
-          <ion-icon name="happy-outline" color="danger"></ion-icon>
-        </div>
-        <div class="emotion-text">{{ emotionalStatus }}</div>
-        <div class="emotion-dots">
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-        </div>
+      <div class="emotion-face">
+        <div class="emotion-emoji">{{ currentEmoji }}</div>
       </div>
-    </ion-card-content>
-  </ion-card>
+      <div class="emotion-text" [class]="emotionalStatus.toLowerCase() + '-text'">
+        {{ emotionalStatus || 'CLICK ANALYZE' }}
+      </div>
+      <div class="emotion-dots">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+  </ion-card-content>
+</ion-card>
 
   <!-- Sleep Status Card -->
   <ion-card class="dashboard-card" (click)="navigateToSleepDetails()">
