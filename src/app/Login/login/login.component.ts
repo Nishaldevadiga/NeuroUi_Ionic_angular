@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController, IonicModule } from '@ionic/angular';
+import { AlertController, IonicModule, ToastController } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -24,7 +24,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private toastController: ToastController
   ) {}
 
   ngOnInit(): void {
@@ -74,8 +75,21 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  navigateToDashboard() {
-    // You can add validation logic here if needed
+  async navigateToDashboard() {
+    const toast = await this.toastController.create({
+      message: 'Logged in Successfully!',
+      duration: 1000,  // 1 seconds
+      position: 'top',
+      color: 'success',
+      icon: 'checkmark-circle',
+      cssClass: 'success-toast'
+    });
+  
+    await toast.present();
+    
+    // Wait for toast to dismiss before navigating
+    await toast.onDidDismiss();
+    
     this.router.navigate(['/dashboard']);
   }
 }

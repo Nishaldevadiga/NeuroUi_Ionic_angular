@@ -218,3 +218,12 @@ ion-content {
     50% { filter: brightness(1.8); }
     100% { filter: brightness(1); }
   }
+  .success-toast {
+    --background: #0077B6;  // Changed from #28ba62 to #0077B6
+    --color: #fff;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    
+    &::part(icon) {
+      font-size: 24px;
+    }
+  }
